@@ -34,7 +34,7 @@ function tabulate(data, columns) {
   return table;
 };
   
-  url = '/table2';
+  url = 'table2.json';
   d3.json(url,  function(dataSet) {
       
     console.log(dataSet);
@@ -110,19 +110,19 @@ function tabulate(data, columns) {
   }
   };
 
-  // var $table = $('table#myTable'),
-  // $bodyCells = $table.find('tbody tr:first').children(),
-  // colWidth;
+  var $table = $('table#myTable'),
+  $bodyCells = $table.find('tbody tr:first').children(),
+  colWidth;
 
-  // // Adjust the width of thead cells when window resizes
-  // $(window).resize(function() {
-  //     // Get the tbody columns width array
-  //     colWidth = $bodyCells.map(function() {
-  //         return $(this).width();
-  //     }).get();
+  // Adjust the width of thead cells when window resizes
+  $(window).resize(function() {
+      // Get the tbody columns width array
+      colWidth = $bodyCells.map(function() {
+          return $(this).width();
+      }).get();
       
-  //     // Set the width of thead columns
-  //     $table.find('thead tr').children().each(function(i, v) {
-  //         $(v).width(colWidth[i]);
-  //     });    
-  // }).resize(); // Trigger resize handler
+      // Set the width of thead columns
+      $table.find('thead tr').children().each(function(i, v) {
+          $(v).width(colWidth[i]);
+      });    
+  }).resize(); // Trigger resize handler
